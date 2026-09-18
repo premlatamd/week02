@@ -41,7 +41,7 @@ This means that most of the important information of the image is stored in the 
 Because of this, we can keep only the first k singular values and remove the remaining ones.Even after removing many singular values,the reconstructed image still looks similar to the original image.
 
 We store only the most important information and reduce the amount of data that needs to be saved.
-...
+-------------
 
 ## Measurement Method
 
@@ -65,7 +65,7 @@ Compression Ratio:
 
 mn / (k(m+n+1))
 
-...
+--------------------
 
 ## Comparison Across Image Types
 
@@ -95,11 +95,11 @@ The Crowd image contains many people and fine details.Information is spread acro
 
 Therefore:
 
-Sea → Best Compression
+Sea -> Best Compression
 
-Saami → Moderate Compression
+Saami ->  Moderate Compression
 
-Crowd → Lowest Compression
+Crowd -> Lowest Compression
 -------
 
 ## Choosing k
@@ -134,6 +134,7 @@ After adding noise, the singular value spectrum became flatter and the smaller s
 This indicates that noise spreads information across more singular values, making the image harder to compress.
 
 At the same time, it shows why SVD can be used for denoising. By keeping only the dominant singular values and discarding smaller ones, a large amount of noise can be removed while preserving the main image structure.
+
 ---------
 ## Why SVD Compression is Not a Good idea.
 
@@ -144,6 +145,7 @@ In our project,the Crowd image is a good example.The image contains many people,
 As the value of k increases,the amount of data that needs to be stored also increases.In such cases,the compression benefit becomes much smaller.
 
 Therefore, SVD is usually more effective for smooth images and not so good for highly detailed  images.
+
 ----------
 
 ### R4 - important thingss about Energy Threshold
@@ -159,6 +161,7 @@ The energy is sometimes dominated by overall brightness rather than actual image
 If we subtract the mean intensity from the image before computing the SVD (centering the image), the singular values become more representative of the real image structure. In that case, the required value of k may increase.
 
 Therefore, energy retention should not be used alone.It is better to compare it with the elbow method and reconstruction error before selecting k.
+
 -------
 
 ## R5 main points which is mentioned in question.
